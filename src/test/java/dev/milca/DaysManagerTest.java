@@ -78,6 +78,16 @@ public class DaysManagerTest {
         boolean result = daysManager.existsDay("Mábado");
         Assertions.assertFalse(result, "El método debe devolver false si el día Mábado no existe.");
     }
+
+    @Test
+    void testOrderListShouldSortDaysAlphabetically() {
+        DaysManager daysManager = new DaysManager();
+        daysManager.createListOfDays();
+        daysManager.orderList();
+        List<String> orderedList = daysManager.returnDays();
+        Assertions.assertEquals("Domingo", orderedList.get(0), "El primer día de la lista ordenada deber ser Domingo.");
+        Assertions.assertEquals("Jueves", orderedList.get(1), "El segundo día de la lista ordenada debe ser Jueves.");
+    }
 }
 
 

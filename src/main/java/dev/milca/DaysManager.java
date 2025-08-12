@@ -1,6 +1,7 @@
 package dev.milca;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 //Clase
 public class DaysManager {
@@ -43,7 +44,7 @@ public class DaysManager {
     }
 
     public void orderList() {
-
+        Collections.sort(this.daysOfWeek);
     }
     
     public void clearList() {
