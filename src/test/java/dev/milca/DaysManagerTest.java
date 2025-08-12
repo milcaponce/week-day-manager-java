@@ -54,6 +54,14 @@ public class DaysManagerTest {
         Assertions.assertFalse(result, "El método debe devolver false si el día no existe");
         Assertions.assertEquals(7, daysManager.getListSize(), "El tamaño de la lista no debe cambiar si el día no existe" );
     }
+
+    @Test
+    void testGetDayByIndexShouldReturnCorrectDay() {
+        DaysManager daysManager = new DaysManager();
+        daysManager.createListOfDays();
+        String day = daysManager.getDayByIndex(0);
+        Assertions.assertEquals("Lunes", day, "El día 0 debería ser Lunes");
+    }
 }
 
 
