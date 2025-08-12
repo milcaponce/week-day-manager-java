@@ -27,11 +27,19 @@ public class DaysManagerTest {
         Assertions.assertNotNull(returnedDays);
         Assertions.assertEquals(7, returnedDays.size());
     }
+
+    @Test
+    void testGetListSizeShouldReturnCorrectSizeAfterCreatingList(){
+        DaysManager daysManager = new DaysManager();
+        daysManager.createListOfDays();
+        int listSize = daysManager.getListSize();
+        Assertions.assertEquals(7, listSize);
+    }
 }
 
 
 /*Teoría para el test:
  * Arrange: crear instancia de la clase (DaysManager daysManager = new DaysManager();)
- * Act: llamar al método que se quiere probar (daysManager.nombreDelMetodo();)
+ * Act: llamar al método que se quiere probar (daysManager.nombreDelMetodo();) En ocasiones, colocar a (tipo de dato + nombre =)
  * Assert: Verificar el resultado, se llama al método y se utiliza Assertions.assert...(); para comparar el resultado con el valor esperado
  */
