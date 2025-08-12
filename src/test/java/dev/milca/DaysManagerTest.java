@@ -1,4 +1,6 @@
 package dev.milca;
+import java.util.List;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -16,11 +18,20 @@ public class DaysManagerTest {
         daysManager.createListOfDays();
         Assertions.assertEquals(7, daysManager.getListSize());
     }
+
+    @Test
+    void testReturnDaysShouldReturnCorrectList() {
+        DaysManager daysManager = new DaysManager();
+        daysManager.createListOfDays();
+        List<String> returnedDays = daysManager.returnDays();
+        Assertions.assertNotNull(returnedDays);
+        Assertions.assertEquals(7, returnedDays.size());
+    }
 }
 
 
 /*Teoría para el test:
- * Arrange: crear instancia de la clase para que el estado inicial del objeto sea el esperado. (DaysManager daysManager = new DaysManager();)
- * Act: llamar al método que se quiere probar (daysManager.createListOfDays();)
- * Assert: Verificar el resultado, se llama al método y se utiliza Assertions.assertEquals... para comparar el resultado con el valor esperado
+ * Arrange: crear instancia de la clase (DaysManager daysManager = new DaysManager();)
+ * Act: llamar al método que se quiere probar (daysManager.nombreDelMetodo();)
+ * Assert: Verificar el resultado, se llama al método y se utiliza Assertions.assert...(); para comparar el resultado con el valor esperado
  */
