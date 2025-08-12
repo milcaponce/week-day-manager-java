@@ -35,6 +35,25 @@ public class DaysManagerTest {
         int listSize = daysManager.getListSize();
         Assertions.assertEquals(7, listSize);
     }
+
+    @Test
+    void testDeleteDayShouldRemoveTheDayAndReturnTrue() {
+        DaysManager daysManager = new DaysManager();
+        daysManager.createListOfDays();
+        boolean result = daysManager.deleteDay("Lunes");
+        Assertions.assertTrue(result, "El método debe devolver true al eliminar un día existente");
+        Assertions.assertFalse(daysManager.existsDay("Lunes"), "Lunes no debería existir en la lista");
+        Assertions.assertEquals(6,daysManager.getListSize(), "El tamaño de la lista debería ser 6");
+    }
+
+    @Test
+    void testDeleteDayShouldReturnFalseIfDayDoesnNotExist() {
+        DaysManager daysManager = new DaysManager();
+        daysManager.createListOfDays();
+        boolean result = daysManager.deleteDay("Lumingo");
+        Assertions.assertFalse(result, "El método debe devolver false si el día no existe");
+        Assertions.assertEquals(7, daysManager.getListSize(), "El tamaño de la lista no debe cambiar si el día no existe" );
+    }
 }
 
 
