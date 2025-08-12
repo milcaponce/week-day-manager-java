@@ -62,6 +62,22 @@ public class DaysManagerTest {
         String day = daysManager.getDayByIndex(0);
         Assertions.assertEquals("Lunes", day, "El día 0 debería ser Lunes");
     }
+
+    @Test
+    void testExistsDayShouldReturnTrueIfDayExists() {
+        DaysManager daysManager = new DaysManager();
+        daysManager.createListOfDays();
+        boolean result = daysManager.existsDay("Miércoles");
+        Assertions.assertTrue(result, "El método debe devolver true si el día Miércoles existe");
+    }
+
+    @Test
+    void testExistsDayShouldReturnFalseIfDayDoesNotExist() {
+        DaysManager daysManager = new DaysManager();
+        daysManager.createListOfDays();
+        boolean result = daysManager.existsDay("Mábado");
+        Assertions.assertFalse(result, "El método debe devolver false si el día Mábado no existe.");
+    }
 }
 
 
